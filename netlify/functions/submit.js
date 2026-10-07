@@ -9,7 +9,8 @@
  *   remind       person wants a check-in later -> store reminder (Netlify Blobs), email report now; task to Nincy
  *   keep         just save -> task to Nincy (no due date), nothing else
  *
- * Env: RESEND_API_KEY, MAIL_FROM, SITE_URL, ZAPIER_HOOK_URL, THRIVE_DESTINATION,
+ * Env: RESEND_API_KEY, MAIL_FROM, SITE_URL, THRIVE_DESTINATION (asana | zapier | planningcenter),
+ *      ASANA_TOKEN (+ optional ASANA_PROJECT, ASANA_SECTION, ASANA_ROUTES_JSON), ZAPIER_HOOK_URL,
  *      PCO_CLIENT_ID, PCO_SECRET, PCO_FIELDS_JSON, PCO_WORKFLOWS_JSON
  * Never logs names or emails.
  */
@@ -132,9 +133,65 @@ async function mailReport(d, report, note) {
 
 /* ---------- Leader routing (Zapier default, Planning Center optional) ---------- */
 async function routeToTeam(d) {
-  const dest = (process.env.THRIVE_DESTINATION || 'zapier').toLowerCase();
-  if (dest === 'planningcenter') return toPlanningCenter(d);
-  return toZapier(d);
+  const dest = (process.env.THRIVE_DESTINATION || 'asana').toLowerCase();
+  try {
+    if (dest === 'planningcenter') return await toPlanningCenter(d);
+    if (dest === 'zapier') return await toZapier(d);
+    return await toAsana(d);
+  } catch (err) {
+    // Leader routing must never cost the person their email. Log and carry on.
+    console.log(JSON.stringify({ t: new Date().toISOString(), ok: false, route: dest, action: d.action, error: String(err.message || err).slice(0, 200) }));
+  }
+}
+
+/* ---------- Asana direct: one task per submission in SLT Weekly Meeting > Serve at LOFT Submissions ---------- */
+const ASANA = {
+  project: '1214518298335134', section: '1219120496157986', workspace: '15707891628224',
+  status: { field: '1214517961102883', notStarted: '1214517961102884' },
+  dept: { field: '1214518052858173', worship: '1214517961102880', fm: '1214518052858179', hosp: '1214517961102875', missions: '1214517961102876', communication: '1214518052858178', cares: '1214518052858177', other: '1214517961102881' },
+  // route_to -> { assignee user gid, department option }
+  routes: {
+    worship: { who: '1201379201949867', dept: 'worship' },   // Anil
+    audio: { who: '1201379201949867', dept: 'worship' },
+    video: { who: '1201379201949867', dept: 'worship' },
+    fm: { who: '1212630982617210', dept: 'fm' },               // Morgan
+    hosp: { who: '1207405527126525', dept: 'hosp' },           // Lexie
+    prayer: { who: '1203627369742151', dept: 'other' },        // Christine
+    missions: { who: '1212326660190408', dept: 'missions' },   // Jasper
+    groups: { who: '1204937968390780', dept: 'other' },        // Kaley
+    general: { who: '1202355615331489', dept: 'communication' }, // Nincy
+    pastor: { who: '1205002162002617', dept: 'cares' }         // Sam
+  },
+  sam: '1205002162002617'
+};
+
+async function toAsana(d) {
+  const token = process.env.ASANA_TOKEN;
+  if (!token) { console.log(JSON.stringify({ t: new Date().toISOString(), route: 'asana', skipped: 'ASANA_TOKEN not set' })); return; }
+  const overrides = process.env.ASANA_ROUTES_JSON ? JSON.parse(process.env.ASANA_ROUTES_JSON) : {};
+  const key = teamKeyFor(d);
+  const r = overrides[key] || ASANA.routes[key] || ASANA.routes.general;
+  const teamName = d.role ? d.role.teamName : (d.team ? d.team.name : '');
+  const name = {
+    try: `Thrive: ${d.first} ${d.last} wants to try ${d.role ? d.role.name : 'a role'}`,
+    intro: `Thrive: ${d.first} ${d.last} asked about ${teamName} (intro email sent, please reply)`,
+    coffee: `Thrive: coffee with ${d.first} ${d.last}`,
+    remind: `Thrive: ${d.first} ${d.last} asked for a check-in on ${d.remindAt} (automatic, no action)`,
+    keep: `Thrive: ${d.first} ${d.last} saved results (do not contact)`
+  }[d.action] || `Thrive: ${d.first} ${d.last} (${d.action})`;
+  const dueOn = ['try', 'intro', 'coffee'].includes(d.action) ? new Date(Date.now() + 2 * 864e5).toISOString().slice(0, 10) : undefined;
+  const notes = summaryText(d) + (d.reportUrl ? `\n\nReport: ${d.reportUrl}` : '') + `\n\nEmail: ${d.email}`;
+  const body = {
+    data: {
+      name, notes, assignee: r.who, due_on: dueOn,
+      projects: [process.env.ASANA_PROJECT || ASANA.project],
+      memberships: [{ project: process.env.ASANA_PROJECT || ASANA.project, section: process.env.ASANA_SECTION || ASANA.section }],
+      followers: r.who === ASANA.sam ? [ASANA.sam] : [ASANA.sam, r.who],
+      custom_fields: { [ASANA.status.field]: ASANA.status.notStarted, [ASANA.dept.field]: ASANA.dept[r.dept] || ASANA.dept.other }
+    }
+  };
+  const res = await fetch('https://app.asana.com/api/1.0/tasks', { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+  if (!res.ok) throw new Error('Asana ' + res.status + ' ' + (await res.text()).slice(0, 160));
 }
 
 function teamKeyFor(d) {

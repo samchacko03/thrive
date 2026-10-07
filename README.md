@@ -12,7 +12,7 @@ Live at **https://thrive.loftcity.church** (HTTPS, Let's Encrypt). `serve-loft.n
 - DNS (GoDaddy, loftcity.church): CNAME `thrive` to Netlify; Resend records for the `mail` subdomain (DKIM TXT, two CNAMEs, MX, owner-verification TXT).
 - Email: Resend domain `mail.loftcity.church` is Verified. Sends from `info@mail.loftcity.church`, replies go to `info@loftcity.church`. API key "Thrive (Netlify)" lives only in Netlify env vars.
 - Tested end to end on the live site: emailReport, try, intro, coffee, remind, keep all returned ok and all emails show Delivered in Resend. The emailed report link opens the stored two-page report.
-- Not yet done: `ZAPIER_HOOK_URL` is unset, so leader tasks are a no-op until the Zap below is built. Role time costs in `roles.json` still need Anil and Morgan.
+- Leader tasks go straight to Asana (SLT Weekly Meeting > Serve at LOFT Submissions) once `ASANA_TOKEN` is set in Netlify. Role time costs in `roles.json` still need Anil and Morgan.
 
 ## How it works
 
@@ -110,22 +110,37 @@ Resend's free tier is 3,000 emails a month, far more than needed. Every email is
 
 ## Backend: where leader tasks go
 
-One environment variable decides: `THRIVE_DESTINATION` = `zapier` (default) or `planningcenter`.
+One environment variable decides: `THRIVE_DESTINATION` = `asana` (default), `zapier`, or `planningcenter`. Leader routing never blocks the person's email: if it fails, the failure is logged and the person still gets their confirmation.
 
-### Option A: Zapier (recommended to start)
+### Option A: Asana direct (default)
 
-Reuses the Serve at LOFT routing already built in Zapier. The function sends a `route_to` field (worship, audio, video, fm, hosp, prayer, missions, groups, general, pastor) and an `action` field (try, intro, coffee, remind, keep).
+The function creates one task per submission in **SLT Weekly Meeting, Action Items** > section **Serve at LOFT Submissions**, the same place the Serve at LOFT Zap puts its tasks. Status Not Started, Department set, Sam added as a follower.
+
+| `route_to` | Assigned to | Department |
+|---|---|---|
+| worship, audio, video | Anil | Worship |
+| fm | Morgan | Family Ministries |
+| hosp | Lexie | Hospitality |
+| prayer | Christine | Other |
+| missions | Jasper | Local Missions |
+| groups | Kaley | Other |
+| general | Nincy | Communication |
+| pastor | Sam | Cares |
+
+Task name by action: try = "Thrive: {name} wants to try {role}" (due in 2 days); intro = "Thrive: {name} asked about {team} (intro email sent, please reply)" (due in 2 days); coffee = "Thrive: coffee with {name}" (due in 2 days); remind = "Thrive: {name} asked for a check-in on {date} (automatic, no action)"; keep = "Thrive: {name} saved results (do not contact)". Notes carry the full summary, the report link, and the email.
+
+Setup: create a Personal Access Token in Asana (Settings > Apps > Developer console or app.asana.com/0/my-apps) and set `ASANA_TOKEN` in Netlify. Tasks are created as that user. Optional overrides: `ASANA_PROJECT`, `ASANA_SECTION`, and `ASANA_ROUTES_JSON` (for example `{"groups":{"who":"<asana user gid>","dept":"other"}}`) when a leader changes. The IDs are in `netlify/functions/submit.js` under `ASANA`.
+
+### Option B: Zapier
+
+Set `THRIVE_DESTINATION` = `zapier`. The function sends a `route_to` field (worship, audio, video, fm, hosp, prayer, missions, groups, general, pastor) and an `action` field (try, intro, coffee, remind, keep).
 
 1. In Zapier, create a Zap: **Trigger: Webhooks by Zapier, Catch Hook.** Copy the hook URL.
 2. In Netlify, set `ZAPIER_HOOK_URL` to that URL.
-3. Add steps in the Zap, mirroring the Serve at LOFT Zap:
-   - **Paths** on `route_to`: worship/audio/video to Anil, fm to Morgan, hosp to Lexie, prayer to Christine, missions to Jasper, groups to Kaley, pastor to Sam, general to Nincy.
-   - **Asana: Create Task** in SLT Weekly Meeting Action Items, section "Serve at LOFT Submissions", assigned to the leader, due in 2 days, name `Thrive: {first_name} {last_name} wants to try {role_name}`, notes = `summary`.
-   - Task name by `action`: try = "Thrive: {first_name} wants to try {role_name}"; intro = "Thrive: {first_name} asked about {role_team_name}" (the intro email already went out; the task is a nudge to reply); coffee = "Thrive: coffee with {first_name}"; remind = "Thrive: {first_name} asked for a check-in on {remind_at}" (no due date; the reminder email is automatic); keep = "Thrive: {first_name} saved results" (no due date, do not contact).
-   - No email steps are needed in the Zap. The function already emails the person.
+3. Add steps in the Zap, mirroring the Serve at LOFT Zap: Paths on `route_to`, then Asana: Create Task with the names above. No email steps are needed; the function already emails the person.
 4. Fields available from the hook: `first_name, last_name, email, action, route_to, remind_at, report_url, fruitful, faithful, wearying, availability, availability_key, drawn_to, role_name, role_team, role_team_name, role_leader, role_leader_email, role_when, role_time, suggested_roles, skills_languages, serve_with, barriers, rhythm, faith_stage, flags, seconds_to_complete, summary, all_scores`.
 
-### Option B: Planning Center direct
+### Option C: Planning Center direct
 
 Writes custom fields and creates a workflow card assigned to the leader. Needs setup in Planning Center first.
 
