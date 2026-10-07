@@ -4,8 +4,6 @@
 
 [functions]
   node_bundler = "esbuild"
-  external_node_modules = ["@sparticuz/chromium", "puppeteer-core"]
-  included_files = ["node_modules/@sparticuz/chromium/bin/**"]
 
 # Send the free Netlify address to the real one (301, keeps the path)
 [[redirects]]

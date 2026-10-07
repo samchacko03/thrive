@@ -15,7 +15,6 @@
  */
 import { getStore } from '@netlify/blobs';
 import { sendEmail, layout, p, btn, reportHtml } from './lib/email.js';
-import { renderPdf } from './lib/pdf.js';
 import { randomBytes } from 'node:crypto';
 
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -120,10 +119,8 @@ function json(obj, status = 200) { return new Response(JSON.stringify(obj), { st
 function fmt(iso) { return new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }); }
 
 async function mailReport(d, report, note) {
-  const pdf = await renderPdf(report);
   await sendEmail({
     to: d.email, subject: `Your Thrive report, ${d.first}`,
-    attachments: pdf ? [{ filename: `Thrive-Report-${(d.first || 'report').replace(/[^\w-]/g, '')}.pdf`, content: pdf.toString('base64') }] : undefined,
     html: layout(`${esc(d.first)}, here's what we learned.`,
       p(`Take it, print it, pray over it. Nothing here commits you to anything.`) +
       (note ? p(`<strong>${esc(note)}</strong>`) : '') +

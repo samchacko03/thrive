@@ -12,7 +12,7 @@ Built to `docs/spec.pdf` (September 2026). Scoring model v2 (energy plus readine
 4. Who are you drawn to serve? (up to three)
 5. Availability this season (six options, including rest and healing).
 6. About you (all optional): skills or languages, who they'd serve with, what would make serving hard, rhythm, where they are with Jesus.
-7. **The report.** A two-page, Letter-size, LOFT-branded report (design in `docs/design/Thrive_Report.pdf`; rules in `docs/design/report-instructions.md`). Shown on screen scaled to the phone, printable from the page, emailed as a PDF attachment with a private link that reopens it. Reports are stored in Netlify Blobs under an unguessable id (`report.html?id=...`); a self-contained `?d=` link is the fallback.
+7. **The report.** A two-page, Letter-size, LOFT-branded report (design in `docs/design/Thrive_Report.pdf`; rules in `docs/design/report-instructions.md`). Shown on screen scaled to the phone, printable from the page (Print or Save as PDF), and emailed with a private link that reopens it. Reports are stored in Netlify Blobs under an unguessable id (`report.html?id=...`); a self-contained `?d=` link is the fallback.
 8. **The four doors.** Nothing is assumed. The person chooses:
    - **Try a role once.** Role cards with time costs. Tap one; the leader gets a task and texts within 48 hours. One Sunday, no commitment.
    - **Talk with someone first.** Pick a team to learn more about: an intro email goes to the person and that team's leader together, Sam BCC'd. Or "I'm not sure yet," which offers coffee with Pastor Sam to discern serving vs. rest; the person gets the Calendly link, Sam gets a heads-up.
@@ -35,7 +35,6 @@ report.html                  standalone report page (opens from the emailed link
 assets/js/report.js          report data model + two-page renderer (matches docs/design)
 assets/css/report.css        the report's own stylesheet
 netlify/functions/report.js  GET /api/report?id= (stored reports)
-netlify/functions/lib/pdf.js server-side PDF via serverless Chromium (attached to emails)
 netlify/functions/submit.js  backend: emails, intros, reminders, leader routing (Zapier or Planning Center)
 netlify/functions/send-reminders.js  scheduled daily; sends reminders due today
 netlify/functions/lib/email.js       Resend email + LOFT email layout
@@ -95,7 +94,7 @@ Setup, one time:
    - `SITE_URL` = `https://thrive.loftcity.church`
    - `PASTOR_EMAIL` = `sam@loftcity.church` (BCC on intros, coffee heads-ups)
    - `PASTOR_CALENDLY` = `https://calendly.com/samchacko`
-3. Nothing else. Netlify Blobs, the schedule, and the PDF renderer work automatically once deployed. (The PDF renderer uses @sparticuz/chromium, about 64 MB; if it ever fails, the email still goes out with the report link, and the person can print from the page.)
+3. Nothing else. Netlify Blobs and the schedule work automatically once deployed. The email carries a private link to the report; the person prints or saves a PDF from the page. (A serverless Chromium PDF attachment was tried and does not run on Netlify's function image, so it was removed.)
 
 Resend's free tier is 3,000 emails a month, far more than needed. Every email is sent from the church, not from a personal account.
 
