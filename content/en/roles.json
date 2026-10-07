@@ -1,0 +1,546 @@
+{
+  "_note": "One entry per real role. Fields: id, team (key from teams.json), name, what (one line, plain), when, time (leave empty until the leader confirms; the app will say 'ask [leader]'), minCommit, training, fits (archetype keys, first is primary), audiences (keys from audiences.json), sunday (true/false), lowCommit (true if it works for a very full season). Keep it honest; this is the SLT's 'every leader writes their roles on one page' list. New in v2: rhythm (weekly/events/oncall), familyOk (true if someone can serve alongside spouse or kids), maturity (true if the role needs an established believer; people still exploring or new to faith are not offered it).",
+  "roles": [
+    {
+      "id": "vocalist",
+      "team": "worship",
+      "name": "Vocalist",
+      "what": "Sing on the team; rehearse midweek and Sunday morning",
+      "when": "Sunday + rehearsal",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "artist"
+      ],
+      "audiences": [],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "instrument",
+      "team": "worship",
+      "name": "Instrumentalist",
+      "what": "Play on the team; rehearse midweek and Sunday morning",
+      "when": "Sunday + rehearsal",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "artist"
+      ],
+      "audiences": [],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "audio",
+      "team": "audio",
+      "name": "Audio Team",
+      "what": "Run the sound board so the room and the stream sound clear",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "producer",
+        "administrator"
+      ],
+      "audiences": [
+        "behind"
+      ],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "video",
+      "team": "video",
+      "name": "Video Team",
+      "what": "Cameras and livestream",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "producer",
+        "administrator"
+      ],
+      "audiences": [
+        "behind"
+      ],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "slides",
+      "team": "video",
+      "name": "Slides & Presentation",
+      "what": "Lyrics and slides in the room and on stream",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "producer",
+        "administrator"
+      ],
+      "audiences": [
+        "behind"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "cozy",
+      "team": "fm",
+      "name": "Cozy Corner (10 months to 3)",
+      "what": "Nurture the littlest ones: songs, play, safety, a calm lap",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "shepherd",
+        "host"
+      ],
+      "audiences": [
+        "kidsLittle"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "wonder",
+      "team": "fm",
+      "name": "Wonder Way (ages 3 to 5)",
+      "what": "Bible stories, songs, and play for preschoolers",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "host",
+        "shepherd"
+      ],
+      "audiences": [
+        "kidsPre"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "joyful",
+      "team": "fm",
+      "name": "Joyful Junction (K to 2nd)",
+      "what": "Lead or co-lead: Bible story, music, activities",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "host"
+      ],
+      "audiences": [
+        "kidsElem"
+      ],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "adventure",
+      "team": "fm",
+      "name": "Adventure Avenue (3rd to 6th)",
+      "what": "Lead or co-lead: teaching that fosters faith, with fun built in",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "discipler"
+      ],
+      "audiences": [
+        "kidsElem"
+      ],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "teens",
+      "team": "fm",
+      "name": "Teens (7th to 12th)",
+      "what": "Teach, mentor, and show up for students",
+      "when": "Sunday + events",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "discipler",
+        "teacher"
+      ],
+      "audiences": [
+        "teens"
+      ],
+      "sunday": true,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": true
+    },
+    {
+      "id": "aide",
+      "team": "fm",
+      "name": "Classroom Support",
+      "what": "Prep materials, guide a small group, be the second adult in the room",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "administrator",
+        "host"
+      ],
+      "audiences": [
+        "kidsPre",
+        "kidsElem",
+        "kidsLittle"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "sub",
+      "team": "fm",
+      "name": "Substitute Pool",
+      "what": "On call for a classroom when a regular is out",
+      "when": "As needed",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "shepherd",
+        "host"
+      ],
+      "audiences": [
+        "kidsPre",
+        "kidsElem",
+        "kidsLittle"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "oncall",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "checkin",
+      "team": "fm",
+      "name": "Family Ministries Check-In",
+      "what": "Greet families, run check-in, keep kids safe",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "administrator",
+        "host"
+      ],
+      "audiences": [
+        "guests",
+        "kidsElem",
+        "kidsLittle"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": true,
+      "maturity": false
+    },
+    {
+      "id": "hospitality",
+      "team": "hosp",
+      "name": "Hospitality Team",
+      "what": "Be the first welcome; help every guest feel seen",
+      "when": "Sunday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "host",
+        "mobilizer"
+      ],
+      "audiences": [
+        "guests"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": true,
+      "maturity": false
+    },
+    {
+      "id": "prayer",
+      "team": "prayer",
+      "name": "Prayer Team",
+      "what": "Pray with people on Sunday mornings and during the week",
+      "when": "Sunday + midweek",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "intercessor",
+        "shepherd"
+      ],
+      "audiences": [
+        "crisis",
+        "adults"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "missions",
+      "team": "missions",
+      "name": "Local Missions Team",
+      "what": "Build relationships and meet needs at the Camelot apartment community",
+      "when": "Once a month",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "mercy",
+        "evangelist"
+      ],
+      "audiences": [
+        "crisis",
+        "far"
+      ],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "events",
+      "familyOk": true,
+      "maturity": false
+    },
+    {
+      "id": "parking",
+      "team": "missions",
+      "name": "Football Parking Lot Outreach",
+      "what": "Welcome game-day parkers, meet neighbors, raise funds for missions",
+      "when": "Game days",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "host",
+        "evangelist",
+        "mercy",
+        "mobilizer"
+      ],
+      "audiences": [
+        "far",
+        "guests"
+      ],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "events",
+      "familyOk": true,
+      "maturity": false
+    },
+    {
+      "id": "groupleader",
+      "team": "groups",
+      "name": "Group Leader",
+      "what": "Host or lead a connect group, the newcomer on-ramp to community",
+      "when": "Weekly or biweekly",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "discipler",
+        "shepherd",
+        "host"
+      ],
+      "audiences": [
+        "adults",
+        "young"
+      ],
+      "sunday": false,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": true
+    },
+    {
+      "id": "biblestudy",
+      "team": "groups",
+      "name": "Bible Study Leader",
+      "what": "Lead a men's or women's study through Scripture",
+      "when": "Weekly",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "teacher",
+        "discipler"
+      ],
+      "audiences": [
+        "adults"
+      ],
+      "sunday": false,
+      "lowCommit": false,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": true
+    },
+    {
+      "id": "followup",
+      "team": "general",
+      "name": "Guest Follow-Up",
+      "what": "Reach out to first-time guests during the week",
+      "when": "Weekday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "mobilizer",
+        "host",
+        "evangelist"
+      ],
+      "audiences": [
+        "guests",
+        "far"
+      ],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "setup",
+      "team": "general",
+      "name": "Sunday Setup & Logistics",
+      "what": "Get the building ready; make Sunday run",
+      "when": "Sunday early",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "administrator",
+        "mercy"
+      ],
+      "audiences": [
+        "behind"
+      ],
+      "sunday": true,
+      "lowCommit": true,
+      "rhythm": "weekly",
+      "familyOk": true,
+      "maturity": false
+    },
+    {
+      "id": "admin",
+      "team": "general",
+      "name": "Office & Admin Support",
+      "what": "Data, scheduling, and the details that keep ministry moving",
+      "when": "Weekday",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "administrator",
+        "strategist"
+      ],
+      "audiences": [
+        "behind"
+      ],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "oncall",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "plantdallas",
+      "team": "general",
+      "name": "Plant Dallas Support",
+      "what": "Help the church planting network with events, research, or hospitality",
+      "when": "Monthly",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "pioneer",
+        "strategist",
+        "mobilizer"
+      ],
+      "audiences": [
+        "far"
+      ],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "events",
+      "familyOk": false,
+      "maturity": false
+    },
+    {
+      "id": "idea",
+      "team": "general",
+      "name": "Something not on this list",
+      "what": "You have an idea or a skill the church doesn't have a slot for yet. Tell Sam about it.",
+      "when": "Flexible",
+      "time": "",
+      "minCommit": "",
+      "training": "",
+      "fits": [
+        "pioneer",
+        "strategist",
+        "artist",
+        "mobilizer"
+      ],
+      "audiences": [],
+      "sunday": false,
+      "lowCommit": true,
+      "rhythm": "events",
+      "familyOk": false,
+      "maturity": false
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "options": [
+    {"key": "flex",    "label": "I have flexible availability and I'm ready to dive in"},
+    {"key": "sunweek", "label": "I can serve Sundays and sometimes during the week"},
+    {"key": "sun",     "label": "I can serve on Sunday mornings"},
+    {"key": "full",    "label": "Life is very full right now (new baby, caregiving, intense season)"},
+    {"key": "rest",    "label": "I'm in a season of rest and healing, and not ready to serve yet"},
+    {"key": "recal",   "label": "I'm already serving and want to re-evaluate where"}
+  ]
+}

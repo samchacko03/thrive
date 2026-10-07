@@ -1,0 +1,16 @@
+{
+  "max": 3,
+  "audiences": [
+    {"key": "kidsLittle", "label": "Babies & toddlers"},
+    {"key": "kidsPre",    "label": "Preschoolers"},
+    {"key": "kidsElem",   "label": "Elementary-age kids"},
+    {"key": "teens",      "label": "Teenagers"},
+    {"key": "young",      "label": "College & young adults"},
+    {"key": "adults",     "label": "Adults"},
+    {"key": "seniors",    "label": "Seniors"},
+    {"key": "guests",     "label": "Guests & newcomers"},
+    {"key": "far",        "label": "People far from God"},
+    {"key": "crisis",     "label": "People in crisis or need"},
+    {"key": "behind",     "label": "Behind the scenes"}
+  ]
+}

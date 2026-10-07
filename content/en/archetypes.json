@@ -1,0 +1,97 @@
+{
+  "order": [
+    "shepherd",
+    "teacher",
+    "discipler",
+    "host",
+    "artist",
+    "producer",
+    "evangelist",
+    "mercy",
+    "intercessor",
+    "administrator",
+    "strategist",
+    "mobilizer",
+    "pioneer"
+  ],
+  "archetypes": {
+    "shepherd": {
+      "name": "Shepherd",
+      "line": "You move toward people in pain and stay there. Hurting people feel safe with you.",
+      "activity": "sitting with someone in a hard season, listening without fixing",
+      "desc": "You are drawn to people in pain. You carry comfort, presence, and patient care into hard seasons, and people feel safe with you."
+    },
+    "teacher": {
+      "name": "Teacher",
+      "line": "You love the moment something clicks, for an adult in a study or a kid in a classroom.",
+      "activity": "teaching a lesson, a class, or a group of kids so it actually sticks",
+      "desc": "You love helping things click for people. Whether through a lesson, a story, a game, or a hands-on activity, you light up when someone finally understands."
+    },
+    "discipler": {
+      "name": "Disciple-Maker",
+      "line": "You play the long game: one person, over years, toward Jesus.",
+      "activity": "meeting one-on-one with someone over months to help them grow",
+      "desc": "You thrive in one-on-one spiritual investment. Walking with someone over time, asking good questions, and helping them take their next step is your sweet spot."
+    },
+    "host": {
+      "name": "Host",
+      "line": "You notice who's on the edges and make them feel they belong.",
+      "activity": "welcoming people and making a room feel like home",
+      "desc": "You make people feel they belong. You notice the new person, set the table, and create spaces where strangers become family."
+    },
+    "artist": {
+      "name": "Artist",
+      "line": "You worship through craft: music, design, words, images.",
+      "activity": "music, design, or creative work for a worship service",
+      "desc": "You communicate and worship through craft. Beauty and excellence are part of your offering, and the church sees and sings because of you."
+    },
+    "producer": {
+      "name": "Producer",
+      "line": "You make Sunday work from the booth: sound, slides, lights, stream, calm under pressure.",
+      "activity": "running sound, slides, or the livestream on a Sunday",
+      "desc": "You make the service happen from behind the scenes. Technology, calm under pressure, and a love for things running smoothly are your gifts."
+    },
+    "evangelist": {
+      "name": "Evangelist",
+      "line": "You come alive around people far from God, and they can tell you like them.",
+      "activity": "spiritual conversations with people who don't believe",
+      "desc": "You come alive around people far from God. Spiritual conversations, invitations, and faith stories feel natural to you, not forced."
+    },
+    "mercy": {
+      "name": "Mercy-Bearer",
+      "line": "Your compassion has hands. Meals, rides, crisis help, practical love.",
+      "activity": "meeting a tangible need with hands-on help",
+      "desc": "You meet tangible needs with hands-on compassion. Food, shelter, advocacy, showing up in crisis: this is where your faith gets practical."
+    },
+    "intercessor": {
+      "name": "Intercessor",
+      "line": "Prayer isn't a duty for you. It's your native language.",
+      "activity": "praying for and with people, consistently and persistently",
+      "desc": "Prayer is not a duty for you; it is your native language. You carry people and burdens before God faithfully and persistently."
+    },
+    "administrator": {
+      "name": "Administrator",
+      "line": "You bring order out of chaos, and ministries run better because of you.",
+      "activity": "running the systems, details, and logistics behind a ministry",
+      "desc": "You bring order out of chaos. Systems, details, schedules, and logistics hum when you are involved."
+    },
+    "strategist": {
+      "name": "Strategist",
+      "line": "You see the big picture and the path to get there.",
+      "activity": "evaluating a ministry honestly and shaping where it should go",
+      "desc": "You see the big picture and the path to get there. Diagnosing problems, shaping vision, and building plans energizes you."
+    },
+    "mobilizer": {
+      "name": "Mobilizer",
+      "line": "You rally people and help them find where their gifts get used.",
+      "activity": "recruiting, connecting, and plugging people into the right place",
+      "desc": "You rally people. Recruiting, connecting, and helping others find their place on a team is something you do almost without thinking."
+    },
+    "pioneer": {
+      "name": "Pioneer",
+      "line": "Blank pages excite you more than full ones. You start what doesn't exist yet.",
+      "activity": "starting something new where there's no roadmap",
+      "desc": "You are wired to start new things. Blank pages, new neighborhoods, and unproven ideas excite you more than maintaining what already exists."
+    }
+  }
+}

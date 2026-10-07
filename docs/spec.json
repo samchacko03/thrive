@@ -1,0 +1,235 @@
+{
+  "title": "Thrive Quick Fit",
+  "subtitle": "Build spec, version 1",
+  "meta": "September 4, 2026  |  Prepared for Sam Chacko, LOFT City Church  |  Status: ready for build",
+  "sections": [
+    {
+      "h": "The one thing this has to do",
+      "blocks": [
+        {"type":"p","text":"Get a newcomer at a welcome lunch from \"I don't know where I fit\" to a scheduled First Serve with a named team leader, in under five minutes, with a human follow-up inside 48 hours. Everything else is optional."},
+        {"type":"table","headers":["Measure","Target","How we know"],"rows":[
+          ["Contacted within 48 hours","100% of takers","Planning Center workflow card step 1 completed with a date"],
+          ["First Serve completed within 60 days","40% of welcome lunch takers","Workflow card reaches step 3"],
+          ["Time to finish the assessment","Under 5 minutes on a phone","Measured in the app, reported in the notification"],
+          ["Leaders trust it","Anil and Morgan keep using it after the pilot","Ask them at the 30-day review"]
+        ]}
+      ]
+    },
+    {
+      "h": "Decisions already made (September 4)",
+      "blocks": [
+        {"type":"ul","items":[
+          "Scope: Quick Fit only. The Full Profile (12-page plan, workplace endowments, growth kits) is deferred until Quick Fit proves itself.",
+          "Backend: Planning Center integration from day one. Planning Center is the system of record. No Google Sheets, no separate dashboard, no shared-key page.",
+          "Pilot teams: Worship (Anil Varughese) and Family Ministries (Morgan Williams). Both leaders own the 48-hour follow-up personally.",
+          "Home: a GitHub repository deployed to thrive.loftcity.church, maintained with Claude Code so Sam and Nincy can change content without touching code.",
+          "Brand: the rebuild adopts the June 2026 brand system (navy #1A2E52, orange #E15628, cream, light blue, Barlow Condensed and DM Sans). The current prototype uses the older navy and Raleway/Lato and should be retired when this launches."
+        ]}
+      ]
+    },
+    {
+      "h": "The welcome lunch experience",
+      "blocks": [
+        {"type":"p","text":"A QR code on each table tent opens thrive.loftcity.church. Table hosts are briefed to ask \"what did you get?\" once people finish. The whole flow is built for one hand, one phone, and a plate on the table."},
+        {"type":"table","headers":["Step","What the person sees","Time"],"rows":[
+          ["1","\"Where can you serve?\" First name, last name, email. One consent line: LOFT may contact you about serving. Start.","20 sec"],
+          ["2","38 quick statements, six per screen, rated from \"I would struggle here\" to \"I would thrive here.\" Progress vine at the top.","3 min"],
+          ["3","Readiness check on the top five wired areas: \"Have you done this kind of thing before?\" Four taps.","30 sec"],
+          ["4","\"Who are you most drawn to serve?\" Up to three chips (babies, kids, teens, young adults, adults, seniors, guests, people far from God, people in crisis, behind the scenes).","15 sec"],
+          ["5","\"How available are you this season?\" One tap from six options, including rest and healing and life is very full.","10 sec"],
+          ["6","Results: your two Fruitful areas in one sentence each, then two or three specific LOFT roles with real time cost and a Try It Once button.","Read"],
+          ["7","Tap Try It Once. Confirmation: \"Morgan will reach out by Wednesday. Here is what a first Sunday looks like.\" Optional: pick a second role, or Save For Later.","10 sec"]
+        ]},
+        {"type":"p","text":"What was removed from the front door on purpose: work, field, work mode, and the long explanatory paragraphs. Those belong in the Full Profile. Availability stays because the matching engine needs it."}
+      ]
+    },
+    {
+      "h": "The results screen",
+      "blocks": [
+        {"type":"p","text":"One screen, no scrolling required to reach the action. Designed to be read aloud to a table host."},
+        {"type":"ul","items":[
+          "Headline: \"[First name], you are wired as a Host and a Teacher.\" One sentence each, in the garden language.",
+          "Role cards (two or three): team name, one line on what you actually do, Sunday or weekday, real time cost from the role catalog (for example \"Sunday mornings, 8:15 to 12:00, twice a month\"), leader first name, Try It Once button.",
+          "A collapsed line: \"See your full picture\" reveals Faithful and Wearying areas and all twelve scores. Present, but not in the way.",
+          "For someone in a season of rest: the same screen, but the button reads Save For Later, the copy says rest is holy, and no leader is assigned. A gentle 90-day check-in card is created instead.",
+          "After tapping: a confirmation with the leader's name, the day they will hear from them, and a one-paragraph picture of a first Sunday. An email copy goes to the person."
+        ]}
+      ]
+    },
+    {
+      "h": "Scoring model, version 2",
+      "blocks": [
+        {"type":"p","text":"The prototype used one energy scale for everything, which made Faithful hollow (it was just ranks three and four) and forced two Wearying areas onto people who had none. Version 2 adds a readiness dimension and absolute thresholds."},
+        {"type":"h3","text":"Items"},
+        {"type":"ul","items":[
+          "36 energy items: three per archetype, the strongest three from the tested bank of 48 (full list in Appendix A). Five-point scale, \"I would struggle here\" to \"I would thrive here.\"",
+          "2 consistency items: two earlier statements repeated in different words near the end. A gap of three or more points on either flags the result internally as quick answers. The person never sees the flag; the leader sees a small note on the card.",
+          "Readiness check: for the five highest-energy archetypes, one question with four answers: Yes, and I'm good at it (ready); Some, and I'd like to grow (learning); No, but I'd try it (willing); No, and I'd rather not (no)."
+        ]},
+        {"type":"h3","text":"Categories"},
+        {"type":"table","headers":["Category","Rule","Shown at lunch"],"rows":[
+          ["Fruitful","Energy 3.8 or higher AND readiness is ready, learning, or willing. Labeled Ready Now or With A Little Training.","Top two"],
+          ["Faithful","Energy 2.8 to 3.7 AND readiness is ready or learning. Capable, not energized. This is the real pinch-hit list.","Collapsed, up to two"],
+          ["Wearying","Energy 2.4 or lower. No readiness check needed.","Collapsed, up to two"],
+          ["Middle ground","Everything else. Named honestly as middle ground, not forced into a bucket.","Full picture only"]
+        ]},
+        {"type":"ul","items":[
+          "Fallback: if fewer than one Fruitful area clears the threshold, promote the highest-energy area whose readiness is not no, and label it Emerging.",
+          "Honesty rule: if nothing scores 2.4 or lower, the result says \"No strong drains showed up,\" rather than inventing weariness.",
+          "Straight-lining: if 30 or more of 38 items share the same answer, the result is still shown, but the card notes \"answered uniformly; worth a conversation.\""
+        ]}
+      ]
+    },
+    {
+      "h": "Role matching rules",
+      "blocks": [
+        {"type":"p","text":"Roles live in a catalog file (Appendix B is the template). Each role carries: team, one-line description, tags for the archetypes it fits, audience tags, Sunday or weekday, time cost, minimum commitment, training provided, and the leader who owns follow-up."},
+        {"type":"ul","items":[
+          "Candidates: every role tagged with either of the person's two Fruitful archetypes.",
+          "Score each candidate: +3 if it matches the primary archetype, +2 for the secondary, +2 for each audience tag the person chose, +1 if it is a Sunday role and the person chose Sunday mornings only, +1 if it is low commitment and the person chose life is very full, +1 if it belongs to a pilot team (pilot phase only).",
+          "Show the top three. Never pad with roles that scored zero.",
+          "Rest and healing: show the roles, swap the button to Save For Later, create the 90-day check-in card, assign no leader.",
+          "Already serving and re-evaluating: same matching, plus a line inviting them to talk with their current leader first; the card goes to General so Sam can broker the conversation."
+        ]}
+      ]
+    },
+    {
+      "h": "Planning Center integration",
+      "blocks": [
+        {"type":"p","text":"A single serverless function on Netlify receives the completed result and does five things in Planning Center People. Secrets never touch the browser."},
+        {"type":"table","headers":["Step","Planning Center action","Notes"],"rows":[
+          ["1","Find the person by email; create them if new (first name, last name, email)","Dedupe by email, so a retake updates rather than duplicates"],
+          ["2","Write custom fields on a Thrive tab","Thrive Date, Fruitful, Faithful, Wearying, Top Archetype 1 and 2, Availability, Drawn To, Role Chosen, Quick Answers flag"],
+          ["3","Create a workflow card in the matching workflow","Thrive: Worship (Anil), Thrive: Family Ministries (Morgan), or Thrive: General (Nincy or Kaley)"],
+          ["4","Add a note to the card","Plain-English summary: the two Fruitful areas, the role chosen with its time cost, availability, drawn-to, and a suggested first Sunday"],
+          ["5","Email the person a confirmation","From LOFT, with the leader's name and the picture of a first Sunday"]
+        ]},
+        {"type":"h3","text":"Planning Center setup (Nincy and Sam, before build week ends)"},
+        {"type":"ul","items":[
+          "Create a People custom tab named Thrive with the fields above (text fields are fine; Availability and Fruitful can be single-select if you prefer clean reporting).",
+          "Create three People workflows: Thrive: Worship, Thrive: Family Ministries, Thrive: General. Each has four steps: 1) Contact within 48 hours, 2) First Serve scheduled, 3) First Serve completed, 4) 30-day check-in. Assign step 1 to the leader.",
+          "Confirm Anil and Morgan have People access sufficient to see and complete workflow cards, and that workflow email notifications are on for them.",
+          "Create the Personal Access Token (done) and enter Client ID and Secret into Netlify as environment variables PCO_CLIENT_ID and PCO_SECRET. Sam does this step himself; nobody else needs the secret.",
+          "Privacy: Planning Center is the only data store. The function logs a timestamp and success or failure only, never names or emails."
+        ]}
+      ]
+    },
+    {
+      "h": "The 48-hour follow-up (Anil and Morgan)",
+      "blocks": [
+        {"type":"p","text":"The tool creates the card. The leader creates the relationship. This is the part that determines whether anything gets used."},
+        {"type":"table","headers":["When","What the leader does","Mark in Planning Center"],"rows":[
+          ["Within 48 hours","Text first, not email. \"Hi Priya, it's Anil from the Worship Team. Thrive said you're wired for this, and I'd love to have you shadow us one Sunday. Does the 21st or the 28th work?\"","Step 1 complete"],
+          ["Once a date is set","Send the First Serve details: where to park, what time, who will meet them, what they will and won't be asked to do. No commitment beyond that one Sunday.","Step 2 complete"],
+          ["The Sunday","Meet them at the door personally. Give them one real, small thing to do. Introduce them to two people by name. Thank them before they leave.","Step 3 complete"],
+          ["30 days later","One text: \"How did it feel? Want to keep going, try something else, or pause?\" All three answers are good answers.","Step 4 complete, with the answer in the note"]
+        ]},
+        {"type":"p","text":"Sam's part: a ten-minute briefing with Anil and Morgan before the pilot lunch, and a five-minute check at SLT each week on cards that are stuck at step 1."}
+      ]
+    },
+    {
+      "h": "Technical architecture",
+      "blocks": [
+        {"type":"ul","items":[
+          "Repository: github.com/loftcitychurch/thrive (or under Sam's account to start). Version control, history, and browser editing for content files.",
+          "Site: static HTML, CSS, and JavaScript modules. No framework, no build step. Fast on phones, easy for Claude Code to maintain.",
+          "Content as data: /content/en/items.json, archetypes.json, roles.json, teams.json, ui.json. Changing a team name, a time cost, or a book means editing a JSON file, not code. /content/es/ is scaffolded from day one for Spanish.",
+          "Backend: one Netlify Function, /netlify/functions/submit.js, holding the Planning Center calls and the confirmation email.",
+          "Hosting: Netlify, deployed automatically from the main branch. DNS: CNAME thrive pointing to the Netlify site, same pattern as study.loftcity.church.",
+          "Accessibility: 18px base text, 44px tap targets, labeled controls, works without JavaScript for the first screen.",
+          "Retire the prototype: once Quick Fit is live, the old page redirects to thrive.loftcity.church."
+        ]}
+      ]
+    },
+    {
+      "h": "Timeline and owners",
+      "blocks": [
+        {"type":"table","headers":["Week","Work","Owner"],"rows":[
+          ["Sept 8 to 12","Planning Center tab and workflows; role catalog filled in for Worship and Family Ministries (Appendix B); repo created; content JSON drafted from this spec; DNS record added","Nincy, Anil, Morgan, Sam, Claude Code"],
+          ["Sept 15 to 19","Build Quick Fit and the submit function; staff take it end to end; fix; leader briefing with Anil and Morgan","Claude Code, Sam"],
+          ["Next welcome lunch","Pilot. Table tents with QR, table hosts briefed, both leaders on call for 48-hour texts","Sam, Kaley, Anil, Morgan"],
+          ["30 days after","Review: contact rate, First Serves scheduled, leader feedback, any stuck cards. Decide what to widen","SLT"],
+          ["60 days after","Report the one number. If it clears 40%, open all teams, add Spanish, and decide on the Full Profile","Sam"]
+        ]}
+      ]
+    },
+    {
+      "h": "Open items that need a person, not a developer",
+      "blocks": [
+        {"type":"ul","items":[
+          "Real time costs for every Worship and Family Ministries role (Appendix B). This is the single most important content in the tool and only Anil and Morgan know it.",
+          "Who owns Thrive: General during the pilot (Nincy or Kaley).",
+          "The date of the next welcome lunch, which sets the build deadline.",
+          "GitHub account: create one for LOFT (recommended) or use Sam's.",
+          "Confirm Anil and Morgan are comfortable with text-first follow-up and know the two Sundays they will offer."
+        ]}
+      ]
+    },
+    {
+      "h": "Appendix A: item bank (38 statements)",
+      "blocks": [
+        {"type":"p","text":"Three per archetype, chosen from the tested bank of 48. The two consistency items repeat statements 1 and 15 in different words and appear at positions 37 and 38."},
+        {"type":"table","headers":["#","Archetype","Statement"],"rows":[
+          ["1","Shepherd","Sitting with someone who is grieving or walking through a crisis"],
+          ["2","Shepherd","Listening patiently while someone processes a painful season, without rushing to fix it"],
+          ["3","Shepherd","Checking in on people who have drifted from community"],
+          ["4","Teacher","Helping someone finally understand an idea they were stuck on"],
+          ["5","Teacher","Teaching kids or students through games, stories, and hands-on activities"],
+          ["6","Teacher","Assisting a lead teacher: prepping materials, guiding a small group, keeping a classroom running"],
+          ["7","Disciple-Maker","Meeting one-on-one with someone to help them grow spiritually"],
+          ["8","Disciple-Maker","Walking with a new believer through their first steps of faith"],
+          ["9","Disciple-Maker","Committing to a long-term mentoring relationship with one person"],
+          ["10","Host","Welcoming guests and helping them feel at home"],
+          ["11","Host","Noticing the person standing alone and starting a conversation with them"],
+          ["12","Host","Creating spaces, physical or relational, where people feel they belong"],
+          ["13","Creator","Leading, singing, or playing music in worship"],
+          ["14","Creator","Designing graphics, video, photography, or social media for ministry"],
+          ["15","Creator","Running audio, slides, lighting, or video and livestream production"],
+          ["16","Evangelist","Starting a spiritual conversation with someone far from God"],
+          ["17","Evangelist","Sharing my own faith story with someone who doesn't yet believe"],
+          ["18","Evangelist","Inviting neighbors, coworkers, or friends to church or a ministry event"],
+          ["19","Mercy-Bearer","Serving meals, food pantries, or practical needs in the community"],
+          ["20","Mercy-Bearer","Showing up with hands-on help when a family is in crisis"],
+          ["21","Mercy-Bearer","Organizing the church to meet a tangible need in our city"],
+          ["22","Intercessor","Spending extended, focused time in prayer for other people"],
+          ["23","Intercessor","Praying with someone on the spot when they share a need"],
+          ["24","Intercessor","Keeping a prayer list and faithfully following up on the answers"],
+          ["25","Administrator","Building schedules, systems, or processes that keep ministry running"],
+          ["26","Administrator","Managing details, budgets, or data and getting them exactly right"],
+          ["27","Administrator","Coordinating behind-the-scenes logistics for an event or service"],
+          ["28","Strategist","Thinking about where a ministry should be three years from now"],
+          ["29","Strategist","Diagnosing why something isn't working and proposing a fix"],
+          ["30","Strategist","Honestly evaluating ministries to decide what to keep, change, or stop"],
+          ["31","Mobilizer","Recruiting people to join a team or a cause"],
+          ["32","Mobilizer","Helping someone discover where they fit and getting them plugged in"],
+          ["33","Mobilizer","Connecting people to each other because you sense they should meet"],
+          ["34","Pioneer","Starting something brand new with no roadmap to follow"],
+          ["35","Pioneer","Taking ministry into a place or community where the church isn't yet present"],
+          ["36","Pioneer","Dreaming about planting new churches or launching new ministries"],
+          ["37","Consistency","Being present with someone on one of the hardest days of their life"],
+          ["38","Consistency","Working the tech booth so a service runs smoothly"]
+        ]}
+      ]
+    },
+    {
+      "h": "Appendix B: role catalog template for the pilot teams",
+      "blocks": [
+        {"type":"p","text":"Anil and Morgan fill in the time cost, minimum commitment, and training columns. Everything else is drafted. This is the SLT's own \"every leader writes their roles on one page\" action, and Thrive becomes the front door to it."},
+        {"type":"table","headers":["Role","What you actually do","When","Time cost","Minimum commitment","Training provided","Fits (archetypes)","Drawn to"],"rows":[
+          ["Vocalist","Sing on the team; rehearse midweek and Sunday morning","Sunday + rehearsal","","","","Creator","Behind the scenes (no)"],
+          ["Instrumentalist","Play on the team; rehearse midweek and Sunday morning","Sunday + rehearsal","","","","Creator","Behind the scenes (no)"],
+          ["Audio Team","Run the sound board; make the service sound clear","Sunday","","","","Creator, Administrator","Behind the scenes"],
+          ["Video Team","Cameras and livestream","Sunday","","","","Creator, Administrator","Behind the scenes"],
+          ["Slides & Presentation","Lyrics and slides in the room and on stream","Sunday","","","","Creator, Administrator","Behind the scenes"],
+          ["Cozy Corner (Crawlers-3)","Nurture the littlest ones; songs, play, safety","Sunday","","","","Shepherd, Host","Babies & toddlers"],
+          ["Joyful Junction (PreK-2nd)","Lead or co-lead; Bible story, music, activities","Sunday","","","","Teacher, Host","Elementary-age kids"],
+          ["Adventure Avenue (3rd-6th)","Lead or co-lead; teaching that fosters faith","Sunday","","","","Teacher, Disciple-Maker","Elementary-age kids"],
+          ["Youth (7th-12th)","Teach, mentor, show up","Sunday + events","","","","Disciple-Maker, Teacher","Teenagers"],
+          ["Classroom Support / Teacher's Aide","Prep materials, guide a small group, second adult in the room","Sunday","","","","Teacher, Administrator, Host","Kids of any age"],
+          ["Substitute pool","On call for a room when a regular is out","As needed","","","","Teacher, Shepherd, Host","Kids of any age"],
+          ["Family Ministries Check-In","Greet families, run check-in, keep kids safe","Sunday","","","","Administrator, Host","Guests, families"]
+        ]}
+      ]
+    }
+  ]
+}

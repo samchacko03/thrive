@@ -1,0 +1,75 @@
+{
+  "_note": "Who owns follow-up for each team. 'reachBy' is a weekday name used in the confirmation message. Fill in emails for everyone before launch. pilot=true teams get a small boost in matching during the pilot; set all to false after. 'pastor' holds Sam's contact for the Talk and Coffee doors and the BCC on introductions.",
+  "teams": {
+    "worship": {
+      "name": "Worship Team",
+      "leader": "Anil",
+      "leaderFull": "Anil Varughese",
+      "email": "anil@loftcity.church",
+      "pilot": true
+    },
+    "audio": {
+      "name": "Audio Team",
+      "leader": "Anil",
+      "leaderFull": "Anil Varughese",
+      "email": "anil@loftcity.church",
+      "pilot": true
+    },
+    "video": {
+      "name": "Video Team",
+      "leader": "Anil",
+      "leaderFull": "Anil Varughese",
+      "email": "anil@loftcity.church",
+      "pilot": true
+    },
+    "fm": {
+      "name": "Family Ministries",
+      "leader": "Morgan",
+      "leaderFull": "Morgan Williams",
+      "email": "morgan@loftcity.church",
+      "pilot": true
+    },
+    "hosp": {
+      "name": "Hospitality Team",
+      "leader": "Lexie",
+      "leaderFull": "Lexie Eckert",
+      "email": "",
+      "pilot": false
+    },
+    "prayer": {
+      "name": "Prayer Team",
+      "leader": "Christine",
+      "leaderFull": "Christine Montelongo",
+      "email": "",
+      "pilot": false
+    },
+    "missions": {
+      "name": "Local Missions Team",
+      "leader": "Jasper",
+      "leaderFull": "Jasper Rodda",
+      "email": "",
+      "pilot": false
+    },
+    "groups": {
+      "name": "Groups",
+      "leader": "Kaley",
+      "leaderFull": "Kaley Miller",
+      "email": "kaley@loftcity.church",
+      "pilot": false
+    },
+    "general": {
+      "name": "LOFT team",
+      "leader": "Nincy",
+      "leaderFull": "Nincy Hernandez",
+      "email": "nincy@loftcity.church",
+      "pilot": false
+    }
+  },
+  "reachByDays": 2,
+  "pastor": {
+    "name": "Sam",
+    "full": "Sam Chacko",
+    "email": "sam@loftcity.church",
+    "calendly": "https://calendly.com/samchacko"
+  }
+}

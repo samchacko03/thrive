@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Your Thrive report | LOFT City Church</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/report.css">
+<link rel="icon" href="assets/logo.png">
+<style>
+  body { margin: 0; background: #ECE9E2; font-family: 'DM Sans', Arial, sans-serif; }
+  .bar { background: #1A2E52; color: #fff; padding: 10px 16px; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .bar a, .bar button { font-family: 'Barlow Condensed', Arial, sans-serif; font-weight: 700; font-size: 16px; letter-spacing: .04em; padding: 9px 18px; border-radius: 99px; border: none; cursor: pointer; text-decoration: none; }
+  .bar .p { background: #E15628; color: #fff; } .bar .q { background: transparent; color: #fff; border: 1.5px solid rgba(255,255,255,.5); }
+  #host { max-width: 816px; margin: 0 auto; }
+  .err { padding: 40px 20px; text-align: center; color: #5F656E; }
+</style>
+</head>
+<body>
+<div class="bar no-print"><span style="font-family:'Barlow Condensed',Arial,sans-serif;font-weight:700;font-size:18px;letter-spacing:.04em">LOFT City Church · Thrive</span>
+  <span><button class="p" onclick="window.print()">Print or save as PDF</button> <a class="q" href="/">Retake Thrive</a></span></div>
+<div id="host"></div>
+<p id="err" class="err" style="display:none">This report link is incomplete or has expired. Please retake Thrive at thrive.loftcity.church.</p>
+<script type="module">
+  import { decodeReport, renderReport } from './assets/js/report.js';
+  const q = new URLSearchParams(location.search);
+  async function load() {
+    if (q.get('id')) { const r = await fetch('/api/report?id=' + encodeURIComponent(q.get('id'))); if (!r.ok) throw new Error('nf'); return r.json(); }
+    if (q.get('d')) return decodeReport(q.get('d'));
+    throw new Error('no data');
+  }
+  load().then(async data => {
+    const ui = await fetch(`content/${data.lang || 'en'}/ui.json`).then(r => r.json());
+    renderReport(document.getElementById('host'), data, { ui });
+    document.title = `${data.name}'s Thrive report | LOFT City Church`;
+  }).catch(() => { document.getElementById('err').style.display = 'block'; });
+</script>
+</body>
+</html>

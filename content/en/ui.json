@@ -1,0 +1,223 @@
+{
+  "siteTitle": "Thrive | Where can you serve? | LOFT City Church",
+  "brand": "LOFT City Church",
+  "motto": "Living Our Faith Together",
+  "welcome": {
+    "eyebrow": "Serving at LOFT",
+    "title": "Where can you serve?",
+    "lead": "Thrive helps you find where you fit in the life of the church. About four minutes on your phone, and it ends with a real next step, not a reading assignment.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "consent": "By continuing, you're okay with a LOFT team leader reaching out about serving.",
+    "start": "Let's go",
+    "note": "Answer from your gut, based on what draws you or wears you down, not whether you've been trained. Skills can be taught; passion can't be manufactured."
+  },
+  "questions": {
+    "prompt": "Imagine doing each of these regularly. Where do you land?",
+    "left": "I'd struggle here",
+    "right": "I'd thrive here",
+    "scale": [
+      "I'd really struggle here",
+      "I might struggle here",
+      "Neutral",
+      "I'd enjoy this",
+      "I'd thrive here"
+    ],
+    "progress": "{done} of {total}",
+    "back": "Back",
+    "next": "Continue"
+  },
+  "readiness": {
+    "eyebrow": "Quick check",
+    "title": "You scored high on these. Have you done this kind of thing before?",
+    "options": [
+      {
+        "key": "ready",
+        "label": "Yes, and I'm good at it"
+      },
+      {
+        "key": "learning",
+        "label": "Some, and I'd like to grow"
+      },
+      {
+        "key": "willing",
+        "label": "No, but I'd try it"
+      },
+      {
+        "key": "no",
+        "label": "No, and I'd rather not"
+      }
+    ]
+  },
+  "audience": {
+    "eyebrow": "Almost done",
+    "title": "Who are you most drawn to serve?",
+    "note": "Pick up to three, or skip. This helps us point you to the right people, from our littlest kids to our newest guests.",
+    "skip": "Skip"
+  },
+  "availability": {
+    "eyebrow": "Last question",
+    "title": "How available are you to serve this season?",
+    "note": "We ask so we can be mindful of your real capacity. This is discernment, not a guilt trip. If this is a season of rest and healing, we honor that."
+  },
+  "results": {
+    "eyebrow": "Your results",
+    "headline": "{name}, you're wired as a {a1} and a {a2}.",
+    "emerging": "{name}, your clearest wiring is as a {a1}, with {a2} emerging.",
+    "fruitfulLabel": "Fruitful",
+    "faithfulLabel": "Faithful",
+    "wearyingLabel": "Wearying",
+    "rolesTitle": "Your best fits at LOFT",
+    "rolesNote": "Real roles, real time costs. Tap one to try it once, no commitment beyond a single Sunday.",
+    "tryIt": "Try it once",
+    "saveLater": "Save for later",
+    "fullPicture": "See your full picture",
+    "noDrains": "No strong drains showed up for you. That's rare and worth noticing.",
+    "timeUnknown": "Ask {leader} about the time commitment",
+    "restNote": "You told us this is a season of rest and healing. Hear this clearly: that is not a problem to fix. Rest is holy, and the church should be a place where you heal, not a place that uses you. These are seeds for a future season.",
+    "fullNote": "You told us life is very full right now. These fits are chosen to be small and sustainable. Serving should fit inside the margins God gives, not compete with the people already entrusted to you.",
+    "recalNote": "You're already serving and re-evaluating. Good. Re-evaluating is stewardship, not quitting. Talk with your current leader first, and bring this with you.",
+    "notNow": "Not right now, just save my results"
+  },
+  "confirm": {
+    "title": "You're in.",
+    "body": "{leader} leads {team} and will reach out by {day} to set up a first Sunday. Here's what that looks like:",
+    "firstSunday": "You'll be met at the door, given one real and small thing to do, introduced to a couple of people by name, and thanked before you leave. That's it. No commitment past that one Sunday.",
+    "introTitle": "Introduction sent.",
+    "introBody": "We've emailed you and {leader}, who leads {team}, together. Reply to that email with any question at all. Pastor Sam is copied so nothing falls through the cracks.",
+    "coffeeTitle": "Sam would love that.",
+    "coffeeBody": "Pick a time that works for you, in person or on Zoom. We've also emailed you the link and let Sam know to expect you.",
+    "coffeeBtn": "Choose a time with Sam",
+    "remindTitle": "You're set.",
+    "remindBody": "We'll check in on {date}, and not before. We've emailed you your report so you have it in the meantime.",
+    "keepTitle": "Saved.",
+    "keepBody": "Your results are with the LOFT team. Nobody will reach out unless you ask. Come back to any of these doors whenever you're ready.",
+    "another": "Pick a second role",
+    "doors": "Back to the options",
+    "done": "Done",
+    "error": "Something went wrong saving your results. Please show this screen to a table host or email info@loftcity.church."
+  },
+  "footer": {
+    "address": "1320 Holly Drive, Richardson, TX 75080",
+    "email": "info@loftcity.church"
+  },
+  "about": {
+    "eyebrow": "One more thing, all optional",
+    "title": "Tell us a little about you",
+    "note": "Every one of these is optional. They help your team leader make serving easy, not harder.",
+    "skillsLabel": "Any skills or languages the church should know about?",
+    "skillsPlaceholder": "e.g., nursing, carpentry, bookkeeping, Spanish, video editing",
+    "serveWithLabel": "I'd love to serve...",
+    "barriersLabel": "Anything that would make serving hard?",
+    "rhythmLabel": "What kind of rhythm fits you best?",
+    "faithLabel": "Where are you with Jesus right now?",
+    "faithNote": "There's no wrong answer, and nobody is grading. We ask so we can walk with you at the right pace.",
+    "skip": "Skip",
+    "next": "See my results"
+  },
+  "report": {
+    "eyebrow": "Your Thrive report",
+    "title": "{name}, here's what we learned.",
+    "sub": "Take it, print it, pray over it. Nothing here commits you to anything.",
+    "emailBtn": "Email me my report",
+    "printBtn": "Print or save as PDF",
+    "emailSending": "Sending...",
+    "emailSent": "Sent to {email}. Check your inbox in a minute.",
+    "emailFail": "Couldn't send just now. Try again in a moment, or use Print.",
+    "fruitfulLabel": "Fruitful",
+    "faithfulLabel": "Faithful",
+    "wearyingLabel": "Wearying",
+    "fruitfulNote": "Where you come alive. Lean in here.",
+    "faithfulNote": "Capable, not energized. Good for a season when there's a need.",
+    "wearyingNote": "Tends to drain you over time. Serve here sparingly.",
+    "noDrains": "No strong drains showed up for you. That's rare and worth noticing.",
+    "scoresTitle": "All thirteen areas",
+    "rolesTitle": "Roles at LOFT that fit you",
+    "rolesNote": "Based on your wiring, who you're drawn to, and your season. Just information for now.",
+    "timeUnknown": "Ask {leader} about the time commitment",
+    "toldUsTitle": "What you told us",
+    "availabilityLabel": "This season",
+    "drawnLabel": "Drawn to",
+    "rhythmLabel": "Rhythm",
+    "serveWithLabel": "Serve with",
+    "faithLabel": "Faith",
+    "skillsLabel": "Skills and languages",
+    "reflectTitle": "Three questions to sit with",
+    "reflect": [
+      "When have you felt most alive serving God? What were you doing, and who was it for?",
+      "Which of your Fruitful areas surprised you, and which confirmed something you already sensed?",
+      "Is there anything you're doing right now mostly out of guilt? What would faithfulness, rather than guilt, ask of you?"
+    ],
+    "nextTitle": "Whenever you're ready",
+    "nextSignup": "Sign up to serve: loftcity.church/connect/serve",
+    "nextTalk": "Coffee with Pastor Sam: calendly.com/samchacko",
+    "nextReturn": "Reopen this report any time from the link in your email, or retake it at thrive.loftcity.church",
+    "scripture": "You are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for you to do. Ephesians 2:10",
+    "printedFor": "Prepared for {name} on {date}",
+    "scriptureText": "You are God's handiwork, created in Christ Jesus to do good works, which God prepared in advance for you to do.",
+    "scriptureRef": "Ephesians 2:10"
+  },
+  "decide": {
+    "title": "What would you like to do next?",
+    "note": "There's no wrong door. Filling this out doesn't mean you're signing up for anything.",
+    "doors": {
+      "try": {
+        "t": "Try a role once",
+        "s": "One Sunday, no commitment past that."
+      },
+      "talk": {
+        "t": "Talk with someone first",
+        "s": "Learn more about a team, or think it through with Pastor Sam."
+      },
+      "remind": {
+        "t": "Not now, remind me later",
+        "s": "Pick a time. We won't reach out before then."
+      },
+      "keep": {
+        "t": "Just keep my results",
+        "s": "Nobody will reach out unless you ask."
+      }
+    },
+    "restFirst": "You said this is a season of rest and healing. We've put the gentler doors first.",
+    "back": "Back"
+  },
+  "tryrole": {
+    "title": "Pick one to try",
+    "note": "Real roles, real time costs. Tap one and the team leader will text you about a first Sunday.",
+    "tryIt": "Try it once"
+  },
+  "talk": {
+    "title": "Is there a team you'd like to learn more about?",
+    "note": "We'll email you and that team's leader together so you can ask anything. Pastor Sam will be copied.",
+    "unsure": "I'm not sure yet",
+    "coffeeTitle": "Coffee with Pastor Sam?",
+    "coffeeBody": "If you're not sure whether this is a season for serving or a season for resting and healing, or where you'd fit if you did serve, Sam would love to sit down with you and think it through together. No agenda, no pressure.",
+    "coffeeYes": "Yes, let's set up coffee",
+    "coffeeNo": "Not right now, just keep my results"
+  },
+  "remind": {
+    "title": "When should we check in?",
+    "note": "We'll send one email on that day with your report and these same options. Nothing before then.",
+    "months": [
+      {
+        "m": 1,
+        "label": "In 1 month"
+      },
+      {
+        "m": 3,
+        "label": "In 3 months"
+      },
+      {
+        "m": 6,
+        "label": "In 6 months"
+      },
+      {
+        "m": 12,
+        "label": "In a year"
+      }
+    ],
+    "custom": "Or pick a date",
+    "btn": "Set my reminder"
+  }
+}

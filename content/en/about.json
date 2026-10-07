@@ -1,0 +1,28 @@
+{
+  "_note": "The optional 'About you' screen. Every field can be skipped. Keys are stable; labels are editable.",
+  "serveWith": [
+    {"key": "alone",  "label": "On my own"},
+    {"key": "spouse", "label": "With my spouse"},
+    {"key": "kids",   "label": "With my kids"},
+    {"key": "friend", "label": "With a friend"}
+  ],
+  "barriers": [
+    {"key": "childcare", "label": "Childcare while I serve"},
+    {"key": "transport", "label": "Transportation"},
+    {"key": "physical",  "label": "Physical limits"},
+    {"key": "language",  "label": "Language"},
+    {"key": "schedule",  "label": "My work schedule"},
+    {"key": "none",      "label": "Nothing really"}
+  ],
+  "rhythm": [
+    {"key": "weekly", "label": "A weekly rhythm, the same role each time"},
+    {"key": "events", "label": "Projects and events, a few times a year"},
+    {"key": "oncall", "label": "On call when there's a need"}
+  ],
+  "faith": [
+    {"key": "exploring", "label": "Still exploring faith"},
+    {"key": "new",       "label": "New to following Jesus"},
+    {"key": "growing",   "label": "Growing"},
+    {"key": "longtime",  "label": "Following Jesus a long time"}
+  ]
+}
