@@ -4,6 +4,16 @@
 
 Built to `docs/spec.pdf` (September 2026). Scoring model v2 (energy plus readiness). No framework, no build step. Content lives in JSON files anyone can edit.
 
+## Current state (October 7, 2026)
+
+Live at **https://thrive.loftcity.church** (HTTPS, Let's Encrypt). `serve-loft.netlify.app` redirects there.
+
+- Code: GitHub `samchacko03/thrive`, branch `main`. Netlify site `serve-loft` auto-deploys every push.
+- DNS (GoDaddy, loftcity.church): CNAME `thrive` to Netlify; Resend records for the `mail` subdomain (DKIM TXT, two CNAMEs, MX, owner-verification TXT).
+- Email: Resend domain `mail.loftcity.church` is Verified. Sends from `info@mail.loftcity.church`, replies go to `info@loftcity.church`. API key "Thrive (Netlify)" lives only in Netlify env vars.
+- Tested end to end on the live site: emailReport, try, intro, coffee, remind, keep all returned ok and all emails show Delivered in Resend. The emailed report link opens the stored two-page report.
+- Not yet done: `ZAPIER_HOOK_URL` is unset, so leader tasks are a no-op until the Zap below is built. Role time costs in `roles.json` still need Anil and Morgan.
+
 ## How it works
 
 1. Name, email, consent.
