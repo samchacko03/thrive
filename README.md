@@ -87,10 +87,11 @@ Every push to `main` redeploys.
 Emails to the person (report, confirmations, intros, coffee, reminders) go through Resend. Reminders are stored in Netlify Blobs (built in, no setup) and sent by a scheduled function every morning at 8:00 AM Central.
 
 Setup, one time:
-1. Create a free account at resend.com. Add the domain `loftcity.church` and add the DNS records it shows (a few TXT/CNAME records in GoDaddy). Wait for "Verified."
+1. Create a free account at resend.com. Add the domain `mail.loftcity.church` (a subdomain, because the root domain was already claimed by another Resend team) and add the DNS records it shows in GoDaddy. Wait for "Verified."
 2. Create an API key. In Netlify > Site configuration > Environment variables, add:
    - `RESEND_API_KEY` = the key
-   - `MAIL_FROM` = `LOFT City Church <info@loftcity.church>`
+   - `MAIL_FROM` = `LOFT City Church <info@mail.loftcity.church>` (the verified sending subdomain)
+   - `MAIL_REPLY_TO` = `info@loftcity.church` (where replies go)
    - `SITE_URL` = `https://thrive.loftcity.church`
    - `PASTOR_EMAIL` = `sam@loftcity.church` (BCC on intros, coffee heads-ups)
    - `PASTOR_CALENDLY` = `https://calendly.com/samchacko`

@@ -8,10 +8,11 @@ export async function sendEmail({ to, cc, bcc, replyTo, subject, html, text, att
   const key = process.env.RESEND_API_KEY;
   if (!key) throw new Error('RESEND_API_KEY not set');
   const from = process.env.MAIL_FROM || 'LOFT City Church <info@loftcity.church>';
+  const defaultReplyTo = process.env.MAIL_REPLY_TO || undefined;
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from, to: [].concat(to), cc: cc ? [].concat(cc) : undefined, bcc: bcc ? [].concat(bcc) : undefined, reply_to: replyTo, subject, html, text, attachments })
+    body: JSON.stringify({ from, to: [].concat(to), cc: cc ? [].concat(cc) : undefined, bcc: bcc ? [].concat(bcc) : undefined, reply_to: replyTo || defaultReplyTo, subject, html, text, attachments })
   });
   if (!res.ok) throw new Error('Resend ' + res.status + ' ' + (await res.text()).slice(0, 200));
 }
