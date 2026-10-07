@@ -180,7 +180,7 @@ async function toAsana(d) {
     keep: `Thrive: ${d.first} ${d.last} saved results (do not contact)`
   }[d.action] || `Thrive: ${d.first} ${d.last} (${d.action})`;
   const dueOn = ['try', 'intro', 'coffee'].includes(d.action) ? new Date(Date.now() + 2 * 864e5).toISOString().slice(0, 10) : undefined;
-  const notes = summaryText(d) + (d.reportUrl ? `\n\nReport: ${d.reportUrl}` : '') + `\n\nEmail: ${d.email}`;
+  const notes = summaryText(d) + `\n\nEmail: ${d.email}`;
   const body = {
     data: {
       name, notes, assignee: r.who, due_on: dueOn,
