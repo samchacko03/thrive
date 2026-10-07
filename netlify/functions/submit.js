@@ -166,7 +166,7 @@ const ASANA = {
 };
 
 async function toAsana(d) {
-  const token = process.env.ASANA_TOKEN;
+  const token = process.env.ASANA_TOKEN || process.env[Object.keys(process.env).find(k => k.toLowerCase() === 'asana_token')] ; // key name is case-insensitive
   if (!token) { console.log(JSON.stringify({ t: new Date().toISOString(), route: 'asana', skipped: 'ASANA_TOKEN not set' })); return; }
   const overrides = process.env.ASANA_ROUTES_JSON ? JSON.parse(process.env.ASANA_ROUTES_JSON) : {};
   const key = teamKeyFor(d);
